@@ -123,7 +123,14 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &144152630
+=======
+--- !u!1 &1351739029
+=======
+--- !u!1 &191335580
+>>>>>>> 3c218689989d2913dc444e7f26ca0e75f2e84630
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,9 +138,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 144152631}
   - component: {fileID: 144152633}
   - component: {fileID: 144152632}
+=======
+<<<<<<< HEAD
+  - component: {fileID: 1351739031}
+  - component: {fileID: 1351739030}
+=======
+  - component: {fileID: 191335581}
+  m_Layer: 0
+  m_Name: AR Setup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &191335581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191335580}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9626728, y: 3.9794407, z: -0.48249492}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1272620532}
+  - {fileID: 1054079913}
+  - {fileID: 1303962408}
+  - {fileID: 830067904}
+  - {fileID: 1742777870}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &536115290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 536115291}
+  - component: {fileID: 536115293}
+  - component: {fileID: 536115292}
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2173,7 +2226,11 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1412896220
+=======
+--- !u!1 &1435391205
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2181,6 +2238,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1412896224}
   - component: {fileID: 1412896223}
   - component: {fileID: 1412896222}
@@ -2188,10 +2246,19 @@ GameObject:
   m_Layer: 5
   m_Name: LockButton
   m_TagString: Untagged
+=======
+  - component: {fileID: 1435391208}
+  - component: {fileID: 1435391207}
+  - component: {fileID: 1435391206}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!114 &1412896221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2661,6 +2728,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+=======
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
 --- !u!81 &1435391206
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3438,6 +3507,9 @@ PrefabInstance:
   m_Father: {fileID: 191335581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> 3c218689989d2913dc444e7f26ca0e75f2e84630
+<<<<<<< HEAD
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
+=======
 >>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -3452,8 +3524,12 @@ SceneRoots:
   - {fileID: 1217802230}
   - {fileID: 191335581}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 1097947624}
   - {fileID: 1837863627}
+=======
+>>>>>>> 3c218689989d2913dc444e7f26ca0e75f2e84630
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
 =======
 >>>>>>> 3c218689989d2913dc444e7f26ca0e75f2e84630
 >>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
