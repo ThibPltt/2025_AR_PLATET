@@ -2,17 +2,25 @@
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using System.Collections.Generic;
+using UnityEngine.UI;  // Importer pour utiliser les boutons UI
 
-public class ARPlaceAndLockCube : MonoBehaviour
+public class LockTerrainButton : MonoBehaviour
 {
     public GameObject cubePrefab;
     public ARRaycastManager raycastManager;
     public ARPlaneManager planeManager;
     public ARAnchorManager anchorManager;
 
+    public Button confirmButton; // Bouton de confirmation
     private bool hasPlacedCube = false;
     private GameObject placedCube = null;  // Référence pour le cube déjà placé
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
+    void Start()
+    {
+        // Lier le bouton à la fonction de verrouillage du cube
+        confirmButton.onClick.AddListener(LockCube);
+    }
 
     void Update()
     {
@@ -34,11 +42,11 @@ public class ARPlaceAndLockCube : MonoBehaviour
             if (hasPlacedCube)
                 return;
 
-            // 🧷 Crée une ancre sur le plan pour fixer le cube
+            // Crée une ancre sur le plan pour fixer le cube
             ARAnchor anchor = anchorManager.AttachAnchor(hitPlane, hitPose);
             if (anchor == null)
             {
-                Debug.Log("❌ Impossible de créer une ancre.");
+                Debug.Log("Impossible de créer une ancre.");
                 return;
             }
 
@@ -46,15 +54,27 @@ public class ARPlaceAndLockCube : MonoBehaviour
             placedCube = Instantiate(cubePrefab, hitPose.position, hitPose.rotation);
             placedCube.transform.SetParent(anchor.transform);  // Fixe le cube à l'ancre
 
-            // 🔒 Une fois le cube posé, on ne permet plus de nouveaux placements
+            // Le cube peut maintenant être verrouillé
             hasPlacedCube = true;
 
-            // ❌ Désactive la détection et l'affichage des plans après la pose
+            // Désactiver la détection et l'affichage des plans après la pose
             planeManager.enabled = false;
             foreach (var plane in planeManager.trackables)
                 plane.gameObject.SetActive(false);
 
-            Debug.Log("✅ Cube placé et verrouillé à la position.");
+            Debug.Log("Cube posé. Appuie sur 'OK' pour le verrouiller.");
+        }
+    }
+
+    // Fonction pour verrouiller le cube (après avoir appuyé sur le bouton)
+    void LockCube()
+    {
+        if (placedCube != null)
+        {
+            // Désactive la possibilité de le déplacer ou de le modifier
+            placedCube.GetComponent<Collider>().enabled = false;
+            placedCube.transform.SetParent(null); // Détache le cube de l'ancre
+            Debug.Log("Cube verrouillé et ne peut plus être déplacé.");
         }
     }
 }
