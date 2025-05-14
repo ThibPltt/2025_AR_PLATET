@@ -17,7 +17,7 @@ private void Awake ( )
 _arRaycastManager = GetComponent<ARRaycastManager > ( ) ;
 }
 bool TryGetTouchPosition(out Vector2 touchPosition)
-{ // Cette fonction permet de d t e c t e r lorsque l ' u t i l i s a t e u r touche l ' cran
+{
 if(Input.touchCount > 0)
 {
         touchPosition = Input.GetTouch(index: 0).position;
