@@ -28,17 +28,17 @@ if(Input.touchCount > 0)
 }
 void Update()
 {
-    if( !TryGetTouchPosition(out Vector2 touchPosition) ) return;
-    if(_arRaycastManager.Raycast (touchPosition, hits ,
-    trackableTypes : TrackableType.PlaneWithinPolygon ) )
+    if( !TryGetTouchPosition(out Vector2 touchPosition)) return;
+    if(_arRaycastManager.Raycast (touchPosition, hits,
+    trackableTypes : TrackableType.PlaneWithinPolygon ))
 {
     var hitPose = hits[0].pose;
     if(spawnedObject == null)
 {
-        spawnedObject = Instantiate(gameObjectToInstantiate ,
-        hitPose.position , hitPose.rotation);
+        spawnedObject = Instantiate(gameObjectToInstantiate,
+        hitPose.position, hitPose.rotation);
     }
     else spawnedObject.transform.position = hitPose.position;
-}
+    }
 }
 }
