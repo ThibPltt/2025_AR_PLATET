@@ -122,6 +122,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &144152630
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +257,13 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144152630}
   m_CullTransparentMesh: 1
+=======
+<<<<<<< HEAD
+--- !u!1 &1351739029
+=======
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
 --- !u!1 &191335580
+>>>>>>> 3c218689989d2913dc444e7f26ca0e75f2e84630
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,6 +271,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
+  - component: {fileID: 1351739031}
+  - component: {fileID: 1351739030}
+=======
   - component: {fileID: 191335581}
   m_Layer: 0
   m_Name: AR Setup
@@ -2076,6 +2087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1324874275}
   - component: {fileID: 1324874274}
+>>>>>>> 3c218689989d2913dc444e7f26ca0e75f2e84630
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2083,13 +2095,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!108 &1324874274
+--- !u!108 &1351739030
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324874273}
+  m_GameObject: {fileID: 1351739029}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
@@ -2145,13 +2157,13 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!4 &1324874275
+--- !u!4 &1351739031
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324874273}
+  m_GameObject: {fileID: 1351739029}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
@@ -2160,6 +2172,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1412896220
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,6 +2641,9 @@ CanvasRenderer:
   m_GameObject: {fileID: 1684202765}
   m_CullTransparentMesh: 1
 --- !u!1 &1704735246
+=======
+--- !u!1 &1435391205
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2635,34 +2651,92 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1704735247}
-  - component: {fileID: 1704735252}
-  - component: {fileID: 1704735251}
-  - component: {fileID: 1704735250}
-  - component: {fileID: 1704735249}
-  - component: {fileID: 1704735248}
+  - component: {fileID: 1435391208}
+  - component: {fileID: 1435391207}
+  - component: {fileID: 1435391206}
   m_Layer: 0
-  m_Name: Left Controller
-  m_TagString: Untagged
+  m_Name: Main Camera
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1704735247
+--- !u!81 &1435391206
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435391205}
+  m_Enabled: 1
+--- !u!20 &1435391207
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435391205}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1435391208
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704735246}
+  m_GameObject: {fileID: 1435391205}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1004961800}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
 --- !u!210 &1704735248
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -3289,6 +3363,7 @@ MonoBehaviour:
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Modification:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
@@ -3354,13 +3429,31 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bf81c1e7c3fa764c9ad1ad61f333094, type: 3}
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.013364673, y: -0.024006128, z: -0.046802133}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 191335581}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 3c218689989d2913dc444e7f26ca0e75f2e84630
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+<<<<<<< HEAD
+  - {fileID: 1435391208}
+  - {fileID: 1351739031}
+=======
   - {fileID: 1324874275}
   - {fileID: 593322820}
   - {fileID: 1217802230}
   - {fileID: 191335581}
+<<<<<<< HEAD
   - {fileID: 1097947624}
   - {fileID: 1837863627}
+=======
+>>>>>>> 3c218689989d2913dc444e7f26ca0e75f2e84630
+>>>>>>> 3c205410817520bec87a2cdd978540b2d939ede4
