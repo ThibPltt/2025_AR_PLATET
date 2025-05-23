@@ -114,7 +114,13 @@ MonoBehaviour:
   m_Name: Standalone
   m_EditorClassIdentifier: 
   features:
+  - {fileID: -7440657797319678357}
+  - {fileID: -1246278017097637995}
+  - {fileID: -6926621636017269771}
+  - {fileID: 6099883734155724011}
+  - {fileID: -7738731969578881882}
   - {fileID: -2700433061684966901}
+  - {fileID: 7163538020118114323}
   - {fileID: 6915409196765905740}
   - {fileID: 5650784573949842801}
   - {fileID: 2419373814170750533}
@@ -122,14 +128,7 @@ MonoBehaviour:
   - {fileID: 4382463246117417870}
   - {fileID: -1441586506256043815}
   - {fileID: -894651564908129244}
-  - {fileID: 4436788862813806297}
   - {fileID: 5071279090424816880}
-  - {fileID: -7440657797319678357}
-  - {fileID: -1246278017097637995}
-  - {fileID: -6926621636017269771}
-  - {fileID: 6099883734155724011}
-  - {fileID: -7738731969578881882}
-  - {fileID: 7163538020118114323}
   - {fileID: 6505108483495872917}
   - {fileID: -6315971294663167949}
   - {fileID: -1642065526863668960}
@@ -139,9 +138,6 @@ MonoBehaviour:
   - {fileID: -405452616220983320}
   - {fileID: -8938468587357961269}
   m_renderMode: 1
-  m_autoColorSubmissionMode: 1
-  m_colorSubmissionModes:
-    m_List: 00000000
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
@@ -739,7 +735,6 @@ MonoBehaviour:
   - {fileID: 4794238084000863842}
   - {fileID: -7077475522982428366}
   - {fileID: -3113150803949412514}
-  - {fileID: -3533061004389407397}
   - {fileID: 2746966327884432604}
   - {fileID: 828114197395868027}
   - {fileID: -615853479670863390}
@@ -749,9 +744,6 @@ MonoBehaviour:
   - {fileID: 5092977258828884790}
   - {fileID: 4166000173464643137}
   m_renderMode: 1
-  m_autoColorSubmissionMode: 1
-  m_colorSubmissionModes:
-    m_List: 00000000
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
@@ -828,9 +820,6 @@ MonoBehaviour:
   features:
   - {fileID: -5767324073936385546}
   m_renderMode: 1
-  m_autoColorSubmissionMode: 1
-  m_colorSubmissionModes:
-    m_List: 00000000
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
@@ -1228,21 +1217,20 @@ MonoBehaviour:
   m_Name: Android
   m_EditorClassIdentifier: 
   features:
+  - {fileID: 3993529313450857495}
+  - {fileID: -2209947559314925586}
+  - {fileID: 6062641772286251111}
+  - {fileID: -4817684386483539128}
+  - {fileID: 77269246793486129}
   - {fileID: 955353984136670949}
+  - {fileID: 4192493129394899545}
   - {fileID: -555697913694031074}
   - {fileID: 5961855281526396318}
   - {fileID: -1030706273798263050}
   - {fileID: 1260676446090704363}
   - {fileID: 7919950732500850988}
   - {fileID: -3326680513797396712}
-  - {fileID: 344828958119780842}
   - {fileID: -2514230519116318712}
-  - {fileID: 3993529313450857495}
-  - {fileID: -2209947559314925586}
-  - {fileID: 6062641772286251111}
-  - {fileID: -4817684386483539128}
-  - {fileID: 77269246793486129}
-  - {fileID: 4192493129394899545}
   - {fileID: 1785318590166477915}
   - {fileID: 3886758825903474178}
   - {fileID: 7459197877823882876}
@@ -1251,9 +1239,6 @@ MonoBehaviour:
   - {fileID: -4238428356277281857}
   - {fileID: 9100804025460784393}
   m_renderMode: 1
-  m_autoColorSubmissionMode: 1
-  m_colorSubmissionModes:
-    m_List: 00000000
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
