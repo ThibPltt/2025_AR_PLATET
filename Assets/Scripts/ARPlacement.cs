@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
 
 public class ARPlacement : MonoBehaviour
 {
@@ -10,44 +8,56 @@ public class ARPlacement : MonoBehaviour
     public GameObject terrainPrefab;
 
     private ARPlane selectedPlane;
-    private bool isPlaced = false;
     private GameObject spawnedTerrain;
-    public int minPlaneCountBeforeLock = 5;
+    private bool isPlaced = false;
 
-    void Update()
+    void OnEnable()
     {
-        if (isPlaced || selectedPlane != null) return;
+        planeManager.planesChanged += OnPlanesChanged;
+    }
 
-        int planeCount = 0;
-        ARPlane lowestPlane = null;
+    void OnDisable()
+    {
+        planeManager.planesChanged -= OnPlanesChanged;
+    }
 
+    private void OnPlanesChanged(ARPlanesChangedEventArgs args)
+    {
+        if (isPlaced) return;
+
+        List<ARPlane> allPlanes = new List<ARPlane>();
         foreach (var plane in planeManager.trackables)
+            allPlanes.Add(plane);
+
+        if (allPlanes.Count == 0) return;
+
+        selectedPlane = allPlanes[0];
+        foreach (var plane in allPlanes)
         {
-            if (plane.alignment == PlaneAlignment.HorizontalUp)
-            {
-                planeCount++;
-                if (lowestPlane == null || plane.transform.position.y < lowestPlane.transform.position.y)
-                {
-                    lowestPlane = plane;
-                }
-            }
+            if (plane.transform.position.y < selectedPlane.transform.position.y)
+                selectedPlane = plane;
         }
 
-        if (lowestPlane != null && planeCount >= minPlaneCountBeforeLock)
+        if (selectedPlane != null)
         {
-            selectedPlane = lowestPlane;
+            spawnedTerrain = Instantiate(terrainPrefab, selectedPlane.transform.position, Quaternion.identity);
 
-            foreach (var plane in planeManager.trackables)
+            ProceduralTerrain terrainScript = spawnedTerrain.GetComponent<ProceduralTerrain>();
+            if (terrainScript != null)
+            {
+                Vector3 planePos = selectedPlane.transform.position;
+                terrainScript.offset = new Vector2(planePos.x, planePos.z);
+                terrainScript.GenerateBaseTerrain();
+                terrainScript.AnimateUp();
+            }
+
+            foreach (var plane in allPlanes)
             {
                 if (plane != selectedPlane)
                     plane.gameObject.SetActive(false);
             }
 
-            planeManager.enabled = false;
-
-            // Instancier le terrain vallonné
-            spawnedTerrain = Instantiate(terrainPrefab, selectedPlane.transform.position, Quaternion.identity);
-            spawnedTerrain.transform.rotation = Quaternion.Euler(0, selectedPlane.transform.eulerAngles.y, 0);
+            isPlaced = true;
         }
     }
 }
