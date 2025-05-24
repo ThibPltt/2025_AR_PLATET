@@ -1,6 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using TMPro;
+
 
 public class ARPlacement : MonoBehaviour
 {
@@ -10,6 +13,8 @@ public class ARPlacement : MonoBehaviour
     private ARPlane selectedPlane;
     private GameObject spawnedTerrain;
     private bool isPlaced = false;
+    public GameObject resetButton;
+
 
     void OnEnable()
     {
@@ -23,6 +28,9 @@ public class ARPlacement : MonoBehaviour
 
     private void OnPlanesChanged(ARPlanesChangedEventArgs args)
     {
+        if (isPlaced || terrainPrefab == null)
+            return;
+
         if (isPlaced) return;
 
         List<ARPlane> allPlanes = new List<ARPlane>();
@@ -50,6 +58,7 @@ public class ARPlacement : MonoBehaviour
                 terrainScript.offset = new Vector2(planePos.x, planePos.z);
                 terrainScript.GenerateBaseTerrain();
 
+
                 // Recentre après génération
                 float halfWidth = terrainScript.width / 2f;
                 float halfHeight = terrainScript.height / 2f;
@@ -65,6 +74,41 @@ public class ARPlacement : MonoBehaviour
             }
 
             isPlaced = true;
+
+            if (resetButton != null)
+                resetButton.SetActive(true);
+
         }
     }
+
+    public void ResetScene()
+    {
+        if (spawnedTerrain != null)
+        {
+            var controller = spawnedTerrain.GetComponent<TerrainHeightController>();
+            if (controller != null)
+                controller.enabled = false;
+        }
+
+        if (resetButton != null)
+            StartCoroutine(HideResetButtonWithDelay());
+    }
+
+    private IEnumerator HideResetButtonWithDelay()
+    {
+        // Facultatif : changer texte si tu utilises Text
+        var text = resetButton.GetComponentInChildren<TMPro.TMP_Text>();
+        if (text != null)
+            text.text = "Interactions bloquées";
+
+        yield return new WaitForSeconds(1.5f);
+
+        resetButton.SetActive(false);
+    }
+
+
+
+
+
+
 }
