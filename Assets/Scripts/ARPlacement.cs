@@ -40,7 +40,8 @@ public class ARPlacement : MonoBehaviour
 
         if (selectedPlane != null)
         {
-            spawnedTerrain = Instantiate(terrainPrefab, selectedPlane.transform.position, Quaternion.identity);
+            // Instancie temporairement à la position (0, 0, 0)
+            spawnedTerrain = Instantiate(terrainPrefab, Vector3.zero, Quaternion.identity);
 
             ProceduralTerrain terrainScript = spawnedTerrain.GetComponent<ProceduralTerrain>();
             if (terrainScript != null)
@@ -48,6 +49,12 @@ public class ARPlacement : MonoBehaviour
                 Vector3 planePos = selectedPlane.transform.position;
                 terrainScript.offset = new Vector2(planePos.x, planePos.z);
                 terrainScript.GenerateBaseTerrain();
+
+                // Recentre après génération
+                float halfWidth = terrainScript.width / 2f;
+                float halfHeight = terrainScript.height / 2f;
+                spawnedTerrain.transform.position = planePos - new Vector3(halfWidth, 0, halfHeight);
+
                 terrainScript.AnimateUp();
             }
 

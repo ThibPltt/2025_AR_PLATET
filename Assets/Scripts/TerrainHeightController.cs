@@ -18,24 +18,26 @@ public class TerrainHeightController : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount == 1)
+        if (Input.touchCount == 2)
         {
-            Touch touch = Input.GetTouch(0);
+            Touch touch0 = Input.GetTouch(0);
+            Touch touch1 = Input.GetTouch(1);
 
-            if (touch.phase == TouchPhase.Began)
+            if (touch0.phase == TouchPhase.Began || touch1.phase == TouchPhase.Began)
             {
-                startTouchPosition = touch.position;
+                startTouchPosition = (touch0.position + touch1.position) / 2f;
             }
-            else if (touch.phase == TouchPhase.Moved)
+            else if (touch0.phase == TouchPhase.Moved || touch1.phase == TouchPhase.Moved)
             {
-                float deltaY = touch.position.y - startTouchPosition.y;
+                Vector2 currentTouchPosition = (touch0.position + touch1.position) / 2f;
+                float deltaY = currentTouchPosition.y - startTouchPosition.y;
 
                 float newHeight = Mathf.Clamp(currentHeight + deltaY * sensitivity, minHeight, maxHeight);
 
                 terrain.UpdateTerrain(newHeight);
                 currentHeight = newHeight;
 
-                startTouchPosition = touch.position;
+                startTouchPosition = currentTouchPosition;
             }
         }
     }
