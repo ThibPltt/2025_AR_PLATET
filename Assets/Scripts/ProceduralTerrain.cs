@@ -239,6 +239,9 @@ public class ProceduralTerrain : MonoBehaviour
         mc.sharedMesh = mesh;
         mc.enabled = true;
 
+        RepositionDecorations();
+
+
     }
 
     void ApplyMaterial()
@@ -348,4 +351,18 @@ public class ProceduralTerrain : MonoBehaviour
         }
         spawnedDecorations.Clear();
     }
+
+    public void RepositionDecorations()
+    {
+        foreach (var decoration in spawnedDecorations)
+        {
+            if (decoration != null)
+            {
+                Vector3 localPos = decoration.transform.localPosition;
+                float newY = GetHeightAtPosition(localPos.x, localPos.z);
+                decoration.transform.localPosition = new Vector3(localPos.x, newY, localPos.z);
+            }
+        }
+    }
+
 }
