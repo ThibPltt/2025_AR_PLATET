@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Unity.AI.Navigation;
+
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class ProceduralTerrain : MonoBehaviour
@@ -142,6 +144,10 @@ public class ProceduralTerrain : MonoBehaviour
         mc.sharedMesh = mesh;
         mc.enabled = true;
 
+        gameObject.layer = LayerMask.NameToLayer("Ground");
+        gameObject.isStatic = true;
+
+
         ApplyMaterial();
         ClearDecorations();
         decorationsSpawned = false;
@@ -174,11 +180,17 @@ public class ProceduralTerrain : MonoBehaviour
         mesh.vertices = baseVertices;
         mesh.RecalculateNormals();
 
+        // Bake du NavMesh après la génération et animation du mesh
+        BakeNavMesh();
+
+
+
         if (!decorationsSpawned)
         {
             SpawnDecorations();
             decorationsSpawned = true;
         }
+
     }
 
     public void UpdateTerrain(float newHeightMultiplier)
@@ -364,5 +376,27 @@ public class ProceduralTerrain : MonoBehaviour
             }
         }
     }
+
+    private void BakeNavMesh()
+    {
+        NavMeshSurface surface = GetComponent<NavMeshSurface>();
+        if (surface == null)
+        {
+            surface = gameObject.AddComponent<NavMeshSurface>();
+        }
+
+        surface.collectObjects = CollectObjects.All; // Important pour terrains dynamiques
+        surface.layerMask = LayerMask.GetMask("Ground"); // ou "Default" si ton terrain est dessus
+
+        surface.overrideTileSize = true;
+        surface.tileSize = 64;
+        surface.overrideVoxelSize = true;
+        surface.voxelSize = 0.1f;
+
+        surface.BuildNavMesh();
+    }
+
+
+
 
 }
