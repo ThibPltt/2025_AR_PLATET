@@ -1,19 +1,28 @@
 using UnityEngine;
 
-public class TerrainLockController : MonoBehaviour
+public class TerrainLockWatcher : MonoBehaviour
 {
-    public ProceduralTerrain proceduralTerrain;
+    private ProceduralTerrain lockedTerrain;
 
-    public void ToggleLock()
+    // Appelé chaque frame jusqu'à ce qu'on trouve et verrouille le clone
+    private void Update()
     {
-        if (proceduralTerrain != null)
+        if (lockedTerrain == null)
         {
-            proceduralTerrain.isLocked = !proceduralTerrain.isLocked;
-            Debug.Log("Terrain lock toggled: " + proceduralTerrain.isLocked);
+            // Cherche un clone actif de ProceduralTerrain
+            ProceduralTerrain pt = FindObjectOfType<ProceduralTerrain>();
+            if (pt != null && pt.name.Contains("Clone"))
+            {
+                lockedTerrain = pt;
+                LockTerrain(lockedTerrain);
+            }
         }
-        else
-        {
-            Debug.LogWarning("ProceduralTerrain reference not set!");
-        }
+    }
+
+    private void LockTerrain(ProceduralTerrain terrain)
+    {
+        terrain.enabled = false;
+
+        Debug.Log("Terrain clone verrouillé automatiquement.");
     }
 }

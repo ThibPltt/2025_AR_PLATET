@@ -13,7 +13,7 @@ public class ARPlacement : MonoBehaviour
     private ARPlane selectedPlane;
     private GameObject spawnedTerrain;
     private bool isPlaced = false;
-    public GameObject resetButton;
+    public GameObject lockButton;
 
 
     void OnEnable()
@@ -75,40 +75,11 @@ public class ARPlacement : MonoBehaviour
 
             isPlaced = true;
 
-            if (resetButton != null)
-                resetButton.SetActive(true);
+            if (lockButton != null)
+                lockButton.SetActive(true);
 
         }
     }
-
-    public void ResetScene()
-    {
-        if (spawnedTerrain != null)
-        {
-            var controller = spawnedTerrain.GetComponent<TerrainHeightController>();
-            if (controller != null)
-                controller.enabled = false;
-        }
-
-        if (resetButton != null)
-            StartCoroutine(HideResetButtonWithDelay());
-    }
-
-    private IEnumerator HideResetButtonWithDelay()
-    {
-        // Facultatif : changer texte si tu utilises Text
-        var text = resetButton.GetComponentInChildren<TMPro.TMP_Text>();
-        if (text != null)
-            text.text = "Interactions bloquées";
-
-        yield return new WaitForSeconds(1.5f);
-
-        resetButton.SetActive(false);
-    }
-
-
-
-
 
 
 }
