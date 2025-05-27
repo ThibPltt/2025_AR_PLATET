@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
@@ -126,6 +127,21 @@ public class ProceduralTerrain : MonoBehaviour
         mesh.uv = uv;
         mesh.RecalculateNormals();
 
+        mesh.RecalculateBounds();
+
+        // Regénérer le mesh à chaque modification de la hauteur du terrain
+
+        MeshCollider mc = GetComponent<MeshCollider>();
+        if (mc == null)
+        {
+            mc = gameObject.AddComponent<MeshCollider>();
+            mc.sharedMesh = mesh;
+            mc.convex = true;
+        }
+
+        mc.sharedMesh = mesh;
+        mc.enabled = true;
+
         ApplyMaterial();
         ClearDecorations();
         decorationsSpawned = false;
@@ -208,11 +224,21 @@ public class ProceduralTerrain : MonoBehaviour
             }
         }
 
-        mesh.vertices = animatedVertices;
+        mesh.vertices = baseVertices;
         mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
 
-        ClearDecorations();
-        SpawnDecorations();
+        MeshCollider mc = GetComponent<MeshCollider>();
+        if (mc == null)
+        {
+            mc = gameObject.AddComponent<MeshCollider>();
+            mc.sharedMesh = mesh;
+            mc.convex = true;
+        }
+
+        mc.sharedMesh = mesh;
+        mc.enabled = true;
+
     }
 
     void ApplyMaterial()
@@ -294,10 +320,24 @@ public class ProceduralTerrain : MonoBehaviour
         GameObject go = Instantiate(prefab, transform);
         go.transform.localPosition = position;
         go.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-        float scale = Random.Range(0.05f, 0.15f);
+
+        float scale;
+
+        if (System.Array.IndexOf(rockPrefabs, prefab) >= 0)
+        {
+            // Si c'est un rocher, échelle plus petite
+            scale = Random.Range(0.2f, 0.07f);
+        }
+        else
+        {
+            // Pour les autres (arbres, fleurs)
+            scale = Random.Range(0.05f, 0.15f);
+        }
+
         go.transform.localScale = new Vector3(scale, scale, scale);
         spawnedDecorations.Add(go);
     }
+
 
     private void ClearDecorations()
     {
