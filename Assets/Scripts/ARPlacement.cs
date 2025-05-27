@@ -15,7 +15,6 @@ public class ARPlacement : MonoBehaviour
     private bool isPlaced = false;
     public GameObject lockButton;
 
-
     void OnEnable()
     {
         planeManager.planesChanged += OnPlanesChanged;

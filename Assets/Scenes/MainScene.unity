@@ -1378,8 +1378,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1723760919}
-        m_TargetAssemblyTypeName: TerrainLockController, Assembly-CSharp
-        m_MethodName: ToggleLock
+        m_TargetAssemblyTypeName: TerrainManager, Assembly-CSharp
+        m_MethodName: LockTerrain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2818,6 +2818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d350479fd3cb214593f16868f2c4ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProceduralTerrain: {fileID: 990667666039577509, guid: a9cbb66981ef0bc42896498862fd55b7, type: 3}
 --- !u!4 &1723760920
 Transform:
   m_ObjectHideFlags: 0
