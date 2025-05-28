@@ -1379,7 +1379,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1723760919}
         m_TargetAssemblyTypeName: TerrainManager, Assembly-CSharp
-        m_MethodName: LockTerrain
+        m_MethodName: ToggleTerrainLock
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2819,6 +2819,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProceduralTerrain: {fileID: 990667666039577509, guid: a9cbb66981ef0bc42896498862fd55b7, type: 3}
+  toggleButton: {fileID: 820044764}
+  toggleButtonText: {fileID: 387622378}
 --- !u!4 &1723760920
 Transform:
   m_ObjectHideFlags: 0
