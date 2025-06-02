@@ -1,5 +1,6 @@
 # ARmageddon 🔥🌍 - Simulation de bataille en Réalité Augmentée
 
+# Fonctionne en version 2022.3.50f1 et 2022.3.37f (développement en 2022.3.50f1)
 ARmageddon est un jeu de stratégie en **Réalité Augmentée (AR)** développé avec **Unity**. Il permet au joueur de générer dynamiquement un terrain, d’y placer des unités (soldats, bâtiments...) et d’observer une simulation de bataille. Le projet met l'accent sur l’interaction, la visualisation immersive et la manipulation du relief pour influencer les affrontements.
 
 ---
